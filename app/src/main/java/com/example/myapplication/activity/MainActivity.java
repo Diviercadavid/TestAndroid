@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 Intent i = new Intent(MainActivity.this, MovieInfoActivity.class);
                 i.putExtra("movie", movie);
                 startActivity(i);
+                overridePendingTransition(R.anim.slide_to_ride, R.anim.slide_out_left);
             }
         };
 
