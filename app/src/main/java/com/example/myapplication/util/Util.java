@@ -41,8 +41,14 @@ public class Util {
             }
         };
     }
-    public static Bitmap getCacheImageById(Float id){
+    public static Bitmap getCacheImageById(String id){
         return ImageCacheStore.getInstance().getCacheFile(cacheDir+id+".PNG");
+    }
 
+    public  static String buildTrailerDataToVideo(String youtubeKey){
+        if(youtubeKey != null){
+            return "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/"+ youtubeKey +"\" frameborder=\"0\" allowfullscreen></iframe>";
+        }
+        return null;
     }
 }

@@ -3,12 +3,11 @@ package com.example.myapplication.model;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class Movie  implements Serializable {
 
     @SerializedName("id")
-    private float id;
+    private String id;
     @SerializedName("video")
     private boolean video;
     @SerializedName("title")
@@ -23,15 +22,19 @@ public class Movie  implements Serializable {
     private String backdropPath;
     @SerializedName("overview")
     private String overview;
-
+    @SerializedName("key")
+    private String trailerKey;
+    @SerializedName("site")
+    private String trailerSite;
 
     // Getter Methods
 
-    public float getId() {
+
+    public String getId() {
         return id;
     }
 
-    public void setId(float id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -89,5 +92,21 @@ public class Movie  implements Serializable {
 
     public void setOverview(String overview) {
         this.overview = overview;
+    }
+
+    public String getTrailerKey() {
+        return trailerKey;
+    }
+
+    public void setTrailerKey(String trailerKey) {
+        this.trailerKey = trailerKey;
+    }
+
+    public String getTrailerSite() {
+        return trailerSite;
+    }
+
+    public void setTrailerSite(String trailerSite) {
+        this.trailerSite = trailerSite;
     }
 }

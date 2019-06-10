@@ -13,7 +13,6 @@ public class RequestResponse extends PageableResponse implements Serializable  {
     private String backdrop_path;
     @SerializedName("title")
     private String title;
-
     @SerializedName("results")
     ArrayList < Movie > results = new ArrayList< Movie>();
     public boolean isAdult() {

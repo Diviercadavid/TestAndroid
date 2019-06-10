@@ -17,6 +17,7 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 import rx.Observable;
 
@@ -27,7 +28,7 @@ public class MyApplicationService {
     private static final String URL_BASE = "https://api.themoviedb.org/3/";
     public static final String URL_IMAGE_BASE = "https://image.tmdb.org/t/p/w500";
     public static String API_KEY = "0cfa5b299bff50c0f79a91d047565c4d";
-
+    private static final String PARAMETER_APY_KEY = "api_key";
     private MyApplicationApi mMyApplicationApi;
     private Context mContext;
 
@@ -92,19 +93,18 @@ public class MyApplicationService {
 
     }
     public interface MyApplicationApi{
-        @GET("movie/550")
-        Observable<RequestResponse> getList(@Query("api_key") String api_key);
 
         @GET("movie/popular")
-        Observable<RequestResponse> getPopularMovieList(@Query("api_key") String api_key);
-
+        Observable<RequestResponse> getPopularMovieList(@Query(PARAMETER_APY_KEY) String api_key);
 
         @GET("movie/top_rated")
-        Observable<RequestResponse> getTopRatedMovieList(@Query("api_key") String api_key);
-
+        Observable<RequestResponse> getTopRatedMovieList(@Query(PARAMETER_APY_KEY) String api_key);
 
         @GET("movie/upcoming")
-        Observable<RequestResponse> getUpcomingMovieList(@Query("api_key") String api_key);
+        Observable<RequestResponse> getUpcomingMovieList(@Query(PARAMETER_APY_KEY) String api_key);
+
+        @GET("movie/{movieId}/videos")
+        Observable<RequestResponse> getVideos(@Path("movieId")String movieId, @Query(PARAMETER_APY_KEY) String api_key);
 
     }
 
